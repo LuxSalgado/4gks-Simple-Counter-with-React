@@ -6,7 +6,7 @@ import { SecondsCounter } from "./secondsCounter.js";
 
 export function Home() {
 	return (
-		<div className="container bg-dark d-flex justify-content-center py-3">
+		<div className="container rounded fondo d-flex justify-content-center py-3">
 			<SecondsCounter seconds={<i className="far fa-clock"></i>} />
 			<SecondsCounter seconds="0" identificador="sexto-digito" />
 			<SecondsCounter seconds="0" identificador="quinto-digito" />
@@ -18,36 +18,74 @@ export function Home() {
 	);
 }
 
-var numero1 = 1;
-var numero2 = 0;
-var numero3 = 0;
-var numero4 = 0;
-var numero5 = 0;
-var numero6 = 0;
+let counter = 1;
+let temporizador = function() {
+	let aux = counter; //aux me va a ayudar a modificar el valor de counter sin afectarlo
+	ReactDOM.render(
+		(aux % 10).toString(), //Obtengo el valor del ultimo digito de counter
+		document.getElementById("primer-digito")
+	);
+	aux = Math.floor(aux / 10); //Quito el ultimo numero del counter y lo guardo
+	ReactDOM.render(
+		(aux % 10).toString(), //Obtengo el valor del siguiente digito de counter y asi hasta el final
+		document.getElementById("segundo-digito")
+	);
+	aux = Math.floor(aux / 10);
+	ReactDOM.render(
+		(aux % 10).toString(),
+		document.getElementById("tercer-digito")
+	);
+	aux = Math.floor(aux / 10);
+	ReactDOM.render(
+		(aux % 10).toString(),
+		document.getElementById("cuarto-digito")
+	);
+	aux = Math.floor(aux / 10);
+	ReactDOM.render(
+		(aux % 10).toString(),
+		document.getElementById("quinto-digito")
+	);
+	aux = Math.floor(aux / 10);
+	ReactDOM.render(
+		(aux % 10).toString(),
+		document.getElementById("sexto-digito")
+	);
+	counter++; //Incremento el valor del counter en cada iteracion
+};
+
+window.setInterval(temporizador, 1000); //Llamo a la funcion temporizador cada 1 segundo
+
+/* Otro codigo que tambien funciona
+let numero1 = 1;
+let numero2 = 0;
+let numero3 = 0;
+let numero4 = 0;
+let numero5 = 0;
+let numero6 = 0;
 
 let temporizador = function() {
 	ReactDOM.render(
-		<p>{numero1.toString()}</p>,
+		numero1.toString(),
 		document.getElementById("primer-digito")
 	);
 	ReactDOM.render(
-		<p>{numero2.toString()}</p>,
+		numero2.toString(),
 		document.getElementById("segundo-digito")
 	);
 	ReactDOM.render(
-		<p>{numero3.toString()}</p>,
+		numero3.toString(),
 		document.getElementById("tercer-digito")
 	);
 	ReactDOM.render(
-		<p>{numero4.toString()}</p>,
+		numero4.toString(),
 		document.getElementById("cuarto-digito")
 	);
 	ReactDOM.render(
-		<p>{numero5.toString()}</p>,
+		numero5.toString(),
 		document.getElementById("quinto-digito")
 	);
 	ReactDOM.render(
-		<p>{numero6.toString()}</p>,
+		numero6.toString(),
 		document.getElementById("sexto-digito")
 	);
 	numero1 = numero1 + 1;
@@ -77,3 +115,4 @@ let temporizador = function() {
 };
 
 window.setInterval(temporizador, 1000); //Llamo a la funcion temporizador cada 1 segundo
+*/

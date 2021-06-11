@@ -4,9 +4,9 @@ import PropTypes, { object } from "prop-types";
 export function SecondsCounter(props) {
 	return (
 		<div
-			className="border border-white bg-secondary rounded display-2 text-white d-flex align-items-center justify-content-center mx-3 digito"
+			className="rounded display-2 shadow d-flex align-items-center justify-content-center mx-2 digito"
 			id={props.identificador}>
-			<p>{props.seconds}</p>
+			{props.seconds}
 		</div>
 	);
 }
