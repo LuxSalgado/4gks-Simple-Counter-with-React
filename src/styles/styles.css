@@ -1,9 +1,14 @@
+@font-face{
+ font-family:'digital-font';
+ src: url('../fonts/digital-7-mono.ttf');
+}
 .digito {
     width: 100px;
     height: 120px;
     background-color: rgb(219, 219, 219);
-    color: darkblue;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: blue;
+    font-family: 'digital-font';
+    box-shadow: 0 0 10px blue;
 }
 .fondo {
     background-color: rgb(219, 219, 219);
